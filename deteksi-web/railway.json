@@ -1,1 +1,23 @@
-
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "nixpacksConfig": {
+      "phases": {
+        "setup": {
+          "nixPkgs": ["python310", "gcc"]
+        },
+        "install": {
+          "cmds": [
+            "python3.10 -m venv venv",
+            ". venv/bin/activate",
+            "pip install --upgrade pip setuptools",
+            "pip install -r requirements.txt"
+          ]
+        },
+        "start": {
+          "cmd": "gunicorn app:app"
+        }
+      }
+    }
+  }
+}
