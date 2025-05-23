@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda - Deteksi Manipulasi</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'DM Sans', sans-serif;
+      background-color: #ffffff;
+      color: #424769;
+    }
+    .btn-primary {
+      background-color: #f9b17a;
+    }
+    .btn-primary:hover {
+      background-color: #e39e67;
+    }
+    .btn-outline {
+      border: 1px solid #f9b17a;
+      color: #f9b17a;
+    }
+    .btn-outline:hover {
+      background-color: #fff6ef;
+    }
+    .footer {
+      background-color: #2d3250;
+      color: white;
+    }
+    .card-dark {
+      background-color: #424769;
+      color: white;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <header class="py-6 text-center shadow-md" style="background-color: #2d3250;">
+    <div class="flex justify-center items-center gap-4">
+      <img src="/static/logo.png" alt="Logo" class="w-12 h-12">
+      <h1 class="text-3xl font-bold tracking-wide" style="color: #f9b17a;">Sistem Deteksi Manipulasi Gambar</h1>
+    </div>
+  </header>
+
+  <main class="flex-grow flex flex-col justify-center items-center px-4">
+    <div class="text-center max-w-2xl">
+      <p class="text-base mb-8 leading-relaxed text-[#676f9d]">
+        Selamat datang di sistem deteksi manipulasi gambar berbasis <strong>ELA</strong> dan <strong>SRM</strong>.
+        Temukan kebenaran dalam setiap piksel dan pastikan keaslian gambar digital Anda hanya dengan satu klik.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="card-dark rounded-xl shadow-sm p-5 text-left">
+          <h3 class="text-lg font-semibold mb-2">CNN (Convolutional Neural Network)</h3>
+          <p class="text-sm">Model deep learning yang digunakan untuk mengenali pola visual dan klasifikasi gambar manipulasi dengan akurasi tinggi.</p>
+        </div>
+        <div class="card-dark rounded-xl shadow-sm p-5 text-left">
+          <h3 class="text-lg font-semibold mb-2">ELA (Error Level Analysis)</h3>
+          <p class="text-sm">Metode untuk mengidentifikasi perbedaan tingkat kompresi pada gambar JPEG yang mengindikasikan potensi manipulasi.</p>
+        </div>
+        <div class="card-dark rounded-xl shadow-sm p-5 text-left">
+          <h3 class="text-lg font-semibold mb-2">SRM (Spatial Rich Model)</h3>
+          <p class="text-sm">Ekstraksi fitur berbasis noise dari gambar untuk mendeteksi ketidakwajaran distribusi spasial yang terjadi akibat manipulasi.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/upload" class="btn-primary text-white font-semibold px-4 py-2 rounded-lg transition">Mulai Deteksi</a>
+        <a href="/history" class="btn-outline font-semibold px-4 py-2 rounded-lg transition">Riwayat</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer text-center text-sm py-4">
+    &copy; 2025 Sistem Deteksi Gambar - Dibuat oleh Ummah
+  </footer>
+</body>
+</html>

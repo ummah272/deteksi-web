@@ -1,0 +1,72 @@
+<!-- templates/history.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwayat Deteksi</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #2d3250;
+    }
+    .table-header {
+      background-color: #676f9d;
+      color: white;
+    }
+    .table-body {
+      background-color: #424769;
+      color: white;
+    }
+    .btn-home {
+      background-color: #f9b17a;
+    }
+    .btn-home:hover {
+      background-color: #e39e67;
+    }
+  </style>
+</head>
+<body class="min-h-screen px-4 py-8">
+  <h1 class="text-2xl md:text-3xl font-bold text-center mb-6" style="color: #f9b17a;">Riwayat Deteksi</h1>
+
+  <div class="overflow-x-auto max-w-6xl mx-auto">
+    <table class="w-full table-auto text-sm text-center rounded-lg overflow-hidden shadow-lg">
+      <thead class="table-header">
+        <tr>
+          <th class="px-4 py-2">No</th>
+          <th class="px-4 py-2">Nama File</th>
+          <th class="px-4 py-2">Hasil Deteksi</th>
+          <th class="px-4 py-2">Confidence</th>
+          <th class="px-4 py-2">Waktu</th>
+        </tr>
+      </thead>
+      <tbody class="table-body divide-y divide-[#2d3250]" id="history-body">
+        <!-- Data riwayat akan diisi oleh JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-center mt-8">
+    <a href="/" class="btn-home text-white font-semibold px-6 py-2 rounded-lg shadow transition">Kembali ke Beranda</a>
+  </div>
+
+  <script>
+    const history = JSON.parse(localStorage.getItem('deteksi_history') || "[]");
+    const tbody = document.getElementById("history-body");
+
+    history.slice().reverse().forEach((item, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td class="px-4 py-2">${index + 1}</td>
+        <td class="px-4 py-2">${item.filename}</td>
+        <td class="px-4 py-2 font-bold ${item.label === 'Dimanipulasi' ? 'text-[#f9b17a]' : 'text-green-300'}">${item.label}</td>
+        <td class="px-4 py-2">${item.confidence.toFixed(2)}%</td>
+        <td class="px-4 py-2">${item.time}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  </script>
+</body>
+</html>
